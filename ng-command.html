@@ -12,7 +12,7 @@
 		<h1>ngCommand</h1>
 		<div class="info">Command Pattern for
 			<a href="https://angularjs.org/" target="_blank">Angular.js</a>.
-			<a href="https://github.com/stephenlautier/ng-command-assets" target="_blank">Documentation.</a>
+			<a href="https://github.com/stephenlautier/ng-command" target="_blank">Documentation.</a>
 			<p>Activity indicator is not part of this module, instead refer to
 				<a href="https://github.com/voronianski/ngActivityIndicator#ngactivityindicator"
 				target="_blank">ngActivityIndicator.js</a>.</p>
@@ -38,30 +38,5 @@
 			<button class="btn" ng-click="vm.isBusy = !vm.isBusy">Mark as Busy {{ vm.isBusy ? "off" : "on" }}</button>
 		</div>
 		<!-- App -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
-		<script src="/ng-command-assets/ng-command.min.js"></script>
-		<script>
-			var app = angular.module('commandLab', ['ng-command']);
-			app.controller('CommandExampleCtrl', ['$command', '$scope', '$timeout',
-				function ($command, $scope, $timeout) {
-					
-					var self = this;
-					
-					self.isBusy = false;
-					self.saveCmd = $command($scope, save, canExecute);
-					
-					function save (){
-						return $timeout( function() {
-						console.log("save", "yay!");
-					}, 2000);
-					}
-					
-					function canExecute() {
-						return !self.isBusy;
-					}
-					
-				}
-			]);
-		</script>
 	</body>
 	</html
